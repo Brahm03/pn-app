@@ -14,11 +14,6 @@ class AuthDataSourceImpl extends AuthDataSource {
     required Map<String, dynamic> userInfo,
   }) async {
     try {
-      //! {
-      //!   "username" : "Name",
-      //!   "email" : "email",
-      //!   "password" : ""
-      //! }
       print('body $userInfo');
       final res = await Dio().post(
         'http://localhost:1337/api/auth/local/register',
