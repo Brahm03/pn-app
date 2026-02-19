@@ -1,8 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:pn_app/src/core/either/either.dart';
-import 'package:pn_app/src/core/failure/failures.dart';
-import 'package:pn_app/src/core/usecase/usecase.dart';
-import 'package:pn_app/src/features/auth/domain/repository/auth_repository.dart';
+// import 'package:pn_app/src/core/either/either.dart';
+// import 'package:pn_app/src/core/failure/failures.dart';
+// import 'package:pn_app/src/core/usecase/usecase.dart';
+// import 'package:pn_app/src/features/auth/domain/repository/auth_repository.dart';
+
+import '../../../../core/either/either.dart';
+import '../../../../core/failure/failures.dart';
+import '../../../../core/usecase/usecase.dart';
+import '../repository/auth_repository.dart';
 
 class AuthRegisterUseCase extends UseCase<void, Map<String, dynamic>> {
   final AuthRepository authRepository;
