@@ -7,10 +7,11 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(),
       title: 'PN app',
       onGenerateRoute: AppRouter.onGenerateRoute,
-      initialRoute: '/login',
+      initialRoute: '/review',
     );
   }
 }
