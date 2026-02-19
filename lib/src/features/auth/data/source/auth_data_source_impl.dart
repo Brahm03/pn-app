@@ -9,6 +9,7 @@ import 'dart:io';
 // import 'package:pn_app/src/features/auth/data/source/auth_data_source.dart';
 
 import 'package:dio/dio.dart';
+import 'package:get_storage/get_storage.dart';
 
 import '../../../../core/either/either.dart';
 import '../../../../core/failure/failures.dart';
@@ -27,6 +28,8 @@ class AuthDataSourceImpl extends AuthDataSource {
       );
 
       if (res.statusCode! >= 200 && res.statusCode! < 300) {
+        await GetStorage().write('token', res.data['jwt']);
+        print(res.data);
         return Right('');
       } else {
         throw Exception();

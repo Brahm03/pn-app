@@ -4,8 +4,8 @@
 // import 'package:pn_app/src/core/usecase/usecase.dart';
 // import 'package:pn_app/src/features/auth/domain/repository/auth_repository.dart';
 
-import '../../../../core/either/either.dart';
-import '../../../../core/failure/failures.dart';
+import 'package:pn_app/src/core/either/either.dart';
+import 'package:pn_app/src/core/failure/failures.dart' show Failure;
 import '../../../../core/usecase/usecase.dart';
 import '../repository/auth_repository.dart';
 
