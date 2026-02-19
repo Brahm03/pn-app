@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:pn_app/src/features/auth/presentation/screens/login_page.dart';
+import 'package:pn_app/src/features/Splash/presentation/Screens/Onboarding.dart';
+import 'package:pn_app/src/features/Splash/presentation/Screens/SplashScreen.dart';
+import 'package:pn_app/src/features/Splash/presentation/Screens/TemaScreen.dart';
+
 
 class AppRouter {
+  // ignore: body_might_complete_normally_nullable
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/login':
-        return customRouter(LoginPage());
-      // case "sign_up":
-      //   return customRouter();
+        return customRouter(Splashscreen());
+        case "/splash":
+         return customRouter(Onboarding());
+        case "/onboarding":
+       return customRouter(Temascreen());
+        case "/tema":
       default:
     }
   }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:pn_app/src/features/Splash/presentation/Screens/Onboarding.dart';
-
+import 'package:pn_app/src/core/router/app_router.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -11,9 +9,9 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'PN app',
-     
-      home: Onboarding(),
-      
+
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      initialRoute: "/onboarding",
     );
   }
 }
