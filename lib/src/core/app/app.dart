@@ -14,7 +14,7 @@ class App extends StatelessWidget {
       theme: ThemeData.dark(),
       title: 'PN app',
       onGenerateRoute: AppRouter.onGenerateRoute,
-      initialRoute: '/login',
+      initialRoute: "/onboarding",
     );
   }
 }
