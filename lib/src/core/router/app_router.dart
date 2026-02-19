@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pn_app/src/features/Splash/presentation/Screens/Onboarding.dart';
+import 'package:pn_app/src/features/Splash/presentation/Screens/SplashScreen.dart';
+import 'package:pn_app/src/features/Splash/presentation/Screens/TemaScreen.dart';
+
 import 'package:pn_app/src/features/auth/presentation/auth/screens/change_password_page.screen.dart';
 import 'package:pn_app/src/features/auth/presentation/auth/screens/forgot_password_screen.dart';
 import 'package:pn_app/src/features/auth/presentation/auth/screens/sign_up_screen.dart';
@@ -16,6 +20,12 @@ class AppRouter {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/login':
+        return customRouter(Splashscreen());
+        case "/splash":
+         return customRouter(Onboarding());
+        case "/onboarding":
+       return customRouter(Temascreen());
+        case "/tema":
         return customRouter(LoginPage());
          case '/welcome':
         return customRouter(WelcomeScreen());
