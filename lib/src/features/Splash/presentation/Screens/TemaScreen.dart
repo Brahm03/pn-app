@@ -9,7 +9,7 @@ class Temascreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColor.kblack,
+        backgroundColor: AppColor.black,
         actions: [
           Text(
             'Skip',
@@ -138,7 +138,7 @@ class Temascreen extends StatelessWidget {
           ),
         ),
       ),
-      backgroundColor: AppColor.kblack,
+      backgroundColor: AppColor.black,
     );
   }
 }

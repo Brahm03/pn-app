@@ -12,16 +12,17 @@ class Onboarding extends StatefulWidget {
 }
 
 class _OnboardingState extends State<Onboarding> {
-@override
+  @override
   void initState() {
-    Future.delayed(Duration(seconds: 2)).then((v) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => Splashscreen()),
-      );
-    });
+    // Future.delayed(Duration(seconds: 2)).then((v) {
+    //   Navigator.pushReplacement(
+    //     context,
+    //     MaterialPageRoute(builder: (context) => Splashscreen()),
+    //   );
+    // });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +69,25 @@ class _OnboardingState extends State<Onboarding> {
                 ),
               ),
               SizedBox(height: 114),
-              Image.asset('assets/images/foiz.png', height: 38, width: 320),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 24),
+                width: MediaQuery.sizeOf(context).width,
+                height: 8,
+                alignment: Alignment.centerLeft,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: AppColor.bcgraunt1,
+                ),
+                child: AnimatedContainer(
+                  duration: Duration(seconds: 1),
+                  width: MediaQuery.sizeOf(context).width * 0.9,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: AppColor.orange,
+                  ),
+                ),
+              ),
               SizedBox(height: 24),
               Image.asset('assets/images/homiy.png', height: 33, width: 152),
               SizedBox(height: 64),
@@ -76,7 +95,7 @@ class _OnboardingState extends State<Onboarding> {
           ),
         ),
       ),
-      backgroundColor: AppColor.kblack,
+      backgroundColor: AppColor.black,
     );
   }
 }

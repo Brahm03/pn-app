@@ -10,7 +10,7 @@ class Splashscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColor.kblack,
+        backgroundColor: AppColor.black,
         actions: [
           Text(
             'Skip',
@@ -31,9 +31,12 @@ class Splashscreen extends StatelessWidget {
               Container(
                 width: 342,
                 height: 342,
-                decoration: BoxDecoration(color: Colors.grey,),
-                child: Image.network('https://images.unsplash.com/photo-1499257398700-43669759a540?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cmVhZCUyMGElMjBib29rfGVufDB8fDB8fHww',fit: BoxFit.cover,),
-            ),
+                decoration: BoxDecoration(color: Colors.grey),
+                child: Image.network(
+                  'https://images.unsplash.com/photo-1499257398700-43669759a540?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cmVhZCUyMGElMjBib29rfGVufDB8fDB8fHww',
+                  fit: BoxFit.cover,
+                ),
+              ),
               SizedBox(height: 74),
               Text(
                 'Your Personal Library,\nAnywhere',
@@ -63,12 +66,19 @@ class Splashscreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Center(
-                  child: Row( crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      InkWell(onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Temascreen()));
-                      },
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Temascreen(),
+                            ),
+                          );
+                        },
                         child: Text(
                           'Next',
                           style: GoogleFonts.poppins(
@@ -83,12 +93,12 @@ class Splashscreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 52,)
+              SizedBox(height: 52),
             ],
           ),
         ),
       ),
-      backgroundColor: AppColor.kblack,
+      backgroundColor: AppColor.black,
     );
   }
 }
