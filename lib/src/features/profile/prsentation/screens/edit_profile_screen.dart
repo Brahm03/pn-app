@@ -13,19 +13,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.darkBrown,
+      backgroundColor: AppColor.darkBrown,
       appBar: AppBar(
-        backgroundColor: AppColors.darkBrown,
+        backgroundColor: AppColor.darkBrown,
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_sharp, color: AppColors.white),
+          icon: Icon(Icons.arrow_back_sharp, color: AppColor.white),
         ),
         title: Text(
           'Edit Profile',
-          style: GoogleFonts.inter(color: AppColors.white),
+          style: GoogleFonts.inter(color: AppColor.white),
         ),
       ),
       body: SingleChildScrollView(
@@ -39,7 +39,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   foregroundImage: NetworkImage(
                     'https://plus.unsplash.com/premium_photo-1739361617387-abe27c9e1d4b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZmlsZSUyMHdpdGglMjBvcmFuZ2UlMjBmb258ZW58MHx8MHx8fDA%3D',
                   ),
-                  backgroundColor: AppColors.white,
+                  backgroundColor: AppColor.white,
                   radius: 45,
                   backgroundImage: NetworkImage(
                     'https://plus.unsplash.com/premium_photo-1739361617387-abe27c9e1d4b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZmlsZSUyMHdpdGglMjBvcmFuZ2UlMjBmb258ZW58MHx8MHx8fDA%3D',
@@ -48,15 +48,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 SizedBox(height: 8),
                 Text(
                   'PN Member',
-                  style: GoogleFonts.inter(color: AppColors.white),
+                  style: GoogleFonts.inter(color: AppColor.white),
                 ),
                 Text(
                   'Change Photo',
-                  style: GoogleFonts.inter(color: AppColors.orange),
+                  style: GoogleFonts.inter(color: AppColor.orange),
                 ),
                 Text(
                   'FULL NAME',
-                  style: GoogleFonts.inter(color: AppColors.orange),
+                  style: GoogleFonts.inter(color: AppColor.orange),
                 ),
                 SizedBox(height: 32),
                 Row(
@@ -65,26 +65,26 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     Text(
                       textAlign: TextAlign.start,
                       'FULL NAME',
-                      style: GoogleFonts.inter(color: AppColors.orange),
+                      style: GoogleFonts.inter(color: AppColor.orange),
                     ),
                   ],
                 ),
                 SizedBox(height: 8),
                 TextFormField(
-                  style: GoogleFonts.inter(color: AppColors.white),
+                  style: GoogleFonts.inter(color: AppColor.white),
                   decoration: InputDecoration(
                     prefixIcon: Icon(
                       Icons.person_outline,
-                      color: AppColors.orange,
+                      color: AppColor.orange,
                     ),
-                    hintStyle: GoogleFonts.inter(color: AppColors.white),
+                    hintStyle: GoogleFonts.inter(color: AppColor.white),
                     hintText: 'Johnnathon Doe',
-                    focusColor: AppColors.orange,
+                    focusColor: AppColor.orange,
                     filled: true,
-                    fillColor: AppColors.darkBrown.withRed(60),
+                    fillColor: AppColor.darkBrown.withRed(60),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: AppColors.orange),
+                      borderSide: BorderSide(color: AppColor.orange),
                     ),
                   ),
                 ),
@@ -95,26 +95,26 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     Text(
                       textAlign: TextAlign.start,
                       'EMAIL ADDRESS',
-                      style: GoogleFonts.inter(color: AppColors.orange),
+                      style: GoogleFonts.inter(color: AppColor.orange),
                     ),
                   ],
                 ),
                 SizedBox(height: 8),
                 TextFormField(
-                  style: GoogleFonts.inter(color: AppColors.white),
+                  style: GoogleFonts.inter(color: AppColor.white),
                   decoration: InputDecoration(
                     prefixIcon: Icon(
                       Icons.email_outlined,
-                      color: AppColors.orange,
+                      color: AppColor.orange,
                     ),
-                    hintStyle: GoogleFonts.inter(color: AppColors.white),
+                    hintStyle: GoogleFonts.inter(color: AppColor.white),
                     hintText: 'john.doe@pnapp.com',
-                    focusColor: AppColors.orange,
+                    focusColor: AppColor.orange,
                     filled: true,
-                    fillColor: AppColors.darkBrown.withRed(60),
+                    fillColor: AppColor.darkBrown.withRed(60),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: AppColors.orange),
+                      borderSide: BorderSide(color: AppColor.orange),
                     ),
                   ),
                 ),
@@ -125,26 +125,26 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     Text(
                       textAlign: TextAlign.start,
                       'PHONE NUMBRER',
-                      style: GoogleFonts.inter(color: AppColors.orange),
+                      style: GoogleFonts.inter(color: AppColor.orange),
                     ),
                   ],
                 ),
                 SizedBox(height: 8),
                 TextFormField(
-                  style: GoogleFonts.inter(color: AppColors.white),
+                  style: GoogleFonts.inter(color: AppColor.white),
                   decoration: InputDecoration(
                     prefixIcon: Icon(
                       Icons.phone_outlined,
-                      color: AppColors.orange,
+                      color: AppColor.orange,
                     ),
-                    hintStyle: GoogleFonts.inter(color: AppColors.white),
+                    hintStyle: GoogleFonts.inter(color: AppColor.white),
                     hintText: '+1 (555) 0123-456',
-                    focusColor: AppColors.orange,
+                    focusColor: AppColor.orange,
                     filled: true,
-                    fillColor: AppColors.darkBrown.withRed(60),
+                    fillColor: AppColor.darkBrown.withRed(60),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: AppColors.orange),
+                      borderSide: BorderSide(color: AppColor.orange),
                     ),
                   ),
                 ),
@@ -153,7 +153,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   height: 74,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: AppColors.darkBrown.withRed(50),
+                    color: AppColor.darkBrown.withRed(50),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: ListTile(
@@ -162,23 +162,23 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       width: 32,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color: AppColors.orange.withOpacity(0.2),
+                        color: AppColor.orange.withOpacity(0.2),
                       ),
-                      child: Icon(Icons.lock_outline, color: AppColors.orange),
+                      child: Icon(Icons.lock_outline, color: AppColor.orange),
                     ),
                     title: Text(
                       'Change Password',
-                      style: GoogleFonts.inter(color: AppColors.white),
+                      style: GoogleFonts.inter(color: AppColor.white),
                     ),
                     trailing: Icon(
                       Icons.arrow_forward_ios,
-                      color: AppColors.orange,
+                      color: AppColor.orange,
                       size: 16,
                     ),
                     subtitle: Text(
                       'Last changed 3 month ago',
                       style: GoogleFonts.inter(
-                        color: AppColors.white.withOpacity(0.6),
+                        color: AppColor.white.withOpacity(0.6),
                         fontSize: 12,
                       ),
                     ),
@@ -190,7 +190,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     maximumSize: Size(double.infinity, 56),
-                    backgroundColor: AppColors.orange,
+                    backgroundColor: AppColor.orange,
                     minimumSize: Size(double.infinity, 56),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -198,7 +198,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   ),
                   child: Text(
                     'Save Changes',
-                    style: GoogleFonts.inter(color: AppColors.white),
+                    style: GoogleFonts.inter(color: AppColor.white),
                   ),
                 ),
               ],
@@ -222,11 +222,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
 // TextField(
                 //   decoration: InputDecoration(
-                //     prefixIcon: Icon(Icons.person, color: AppColors.white) ,
-                //     hintStyle: GoogleFonts.inter(color: AppColors.white),
+                //     prefixIcon: Icon(Icons.person, color: AppColor.white) ,
+                //     hintStyle: GoogleFonts.inter(color: AppColor.white),
                 //     hintText: 'Johnnathon Doe',
-                //     focusColor: AppColors.orange,
+                //     focusColor: AppColor.orange,
                 //     filled: true,
-                //     fillColor: AppColors.darkBrown.withRed(60),
+                //     fillColor: AppColor.darkBrown.withRed(60),
                 //   ),
                 // ),
