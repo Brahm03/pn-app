@@ -3,10 +3,16 @@
 import 'dart:async';
 import 'dart:io';
 
+// import 'package:dio/dio.dart';
+// import 'package:pn_app/src/core/either/either.dart';
+// import 'package:pn_app/src/core/failure/failures.dart';
+// import 'package:pn_app/src/features/auth/data/source/auth_data_source.dart';
+
 import 'package:dio/dio.dart';
-import 'package:pn_app/src/core/either/either.dart';
-import 'package:pn_app/src/core/failure/failures.dart';
-import 'package:pn_app/src/features/auth/data/source/auth_data_source.dart';
+
+import '../../../../core/either/either.dart';
+import '../../../../core/failure/failures.dart';
+import 'auth_data_source.dart';
 
 class AuthDataSourceImpl extends AuthDataSource {
   @override
