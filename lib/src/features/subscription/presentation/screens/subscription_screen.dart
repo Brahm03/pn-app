@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pn_app/src/core/consts/colors/app_colors.dart';
 
 class SubscriptionScreen extends StatefulWidget {
-  SubscriptionScreen({super.key});
+  const SubscriptionScreen({super.key});
 
   @override
   State<SubscriptionScreen> createState() => _SubscriptionScreenState();
@@ -20,26 +20,17 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
       extendBodyBehindAppBar: false,
       backgroundColor: AppColors.darkBrown,
       appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/profile');
-            },
-            icon: Icon(
-              Icons.keyboard_arrow_right_outlined,
-              color: AppColors.orange,
-            ),
-          ),
-        ],
         backgroundColor: AppColors.darkBrown,
         centerTitle: true,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: Icon(Icons.arrow_back_sharp, color: AppColors.white),
         ),
         title: Text(
           'Your Membership',
-          style: GoogleFonts.poppins(color: AppColors.white),
+          style: GoogleFonts.inter(color: AppColors.white),
         ),
       ),
       body: SingleChildScrollView(
@@ -61,11 +52,11 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                       children: [
                         Text(
                           'FREE TIER USAGE',
-                          style: GoogleFonts.poppins(color: AppColors.orange),
+                          style: GoogleFonts.inter(color: AppColors.orange),
                         ),
                         Text(
                           '3 of 5 books',
-                          style: GoogleFonts.poppins(color: AppColors.white),
+                          style: GoogleFonts.inter(color: AppColors.white),
                         ),
                       ],
                     ),
@@ -82,7 +73,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                     Text(
                       textAlign: TextAlign.center,
                       'You\'ve enjoyed 3 out 5 free books this\nmonth. Upgrade to keep reading without limits.',
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.inter(
                         color: AppColors.white.withAlpha(80),
                         fontSize: 12,
                       ),
@@ -94,7 +85,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
               Text(
                 textAlign: TextAlign.center,
                 'Elevate Your Reading\nExperience',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.inter(
                   color: AppColors.white,
                   fontSize: 25,
                 ),
@@ -103,7 +94,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
               Text(
                 textAlign: TextAlign.center,
                 'Unlock unlimited access to\nthousands of stories, anywhere,\nanytime.',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.inter(
                   color: AppColors.white.withAlpha(80),
                   fontSize: 18,
                 ),
@@ -131,14 +122,14 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                     children: [
                       Text(
                         'PN Premium',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           color: AppColors.white,
                           fontSize: 25,
                         ),
                       ),
                       Text(
                         'Full library access',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           color: AppColors.white.withAlpha(80),
                         ),
                       ),
@@ -147,20 +138,21 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                         children: [
                           Text(
                             '\$9.99',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               color: AppColors.white,
                               fontSize: 30,
                             ),
                           ),
                           Text(
                             '/month',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               color: AppColors.white.withAlpha(80),
                             ),
                           ),
                         ],
                       ),
                       ListTile(
+                        trailing: Icon(Icons.abc),
                         leading: Checkbox(
                           activeColor: AppColors.orange,
                           value: isOn,
@@ -175,13 +167,13 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           children: [
                             Text(
                               'Unlimited Reading',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 color: AppColors.white,
                               ),
                             ),
                             Text(
                               'Access our entire library of thousands of titles.',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 color: AppColors.white.withAlpha(80),
                               ),
                             ),
@@ -203,16 +195,16 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           children: [
                             Text(
                               'Offline Mode',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 color: AppColors.white,
                               ),
                             ),
                             Text(
                               'Download books and read anywhere without data.',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 color: AppColors.white.withAlpha(80),
                               ),
-                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -231,13 +223,13 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           children: [
                             Text(
                               'Ad-Free Experience',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 color: AppColors.white,
                               ),
                             ),
                             Text(
                               'No interrupsions, just you and your stories.',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 color: AppColors.white.withAlpha(80),
                               ),
                             ),
@@ -259,13 +251,13 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           children: [
                             Text(
                               'HQ Audiobooks',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 color: AppColors.white,
                               ),
                             ),
                             Text(
                               'High-fidelity narration for every title.',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 color: AppColors.white.withAlpha(80),
                               ),
                             ),
@@ -284,7 +276,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           ),
                           child: Text(
                             'Upgrade Now',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               color: AppColors.white,
                               fontWeight: FontWeight.bold,
                             ),
@@ -295,7 +287,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                       Center(
                         child: Text(
                           'CANCEL ANYTIME - NO HIDDEN FEES',
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.inter(
                             color: AppColors.white.withAlpha(80),
                           ),
                         ),
@@ -321,14 +313,14 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                         children: [
                           Text(
                             'Annual Plan',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               color: AppColors.white,
                               fontSize: 13,
                             ),
                           ),
                           Text(
                             'Save 20% compared to monthly',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               color: AppColors.white.withAlpha(80),
                             ),
                           ),
@@ -339,7 +331,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                         children: [
                           Text(
                             '\$99.99',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               color: AppColors.white,
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
@@ -347,7 +339,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           ),
                           Text(
                             'SAVE \$20/YEAR',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               color: AppColors.orange,
                               fontSize: 10,
                             ),

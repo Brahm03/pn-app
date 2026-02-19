@@ -21,14 +21,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
         backgroundColor: AppColors.darkBrown,
         centerTitle: true,
         leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () {},
           icon: Icon(Icons.arrow_back_ios, color: AppColors.orange),
         ),
         title: Text(
           'PN Profile',
-          style: GoogleFonts.poppins(color: AppColors.white),
+          style: GoogleFonts.inter(color: AppColors.white),
         ),
         actions: [
           IconButton(
@@ -57,11 +55,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 SizedBox(height: 8),
                 Text(
                   'John Doe',
-                  style: GoogleFonts.poppins(color: AppColors.white),
+                  style: GoogleFonts.inter(color: AppColors.white),
                 ),
                 Text(
                   'john.doe@email.com',
-                  style: GoogleFonts.poppins(color: AppColors.orange),
+                  style: GoogleFonts.inter(color: AppColors.orange),
                 ),
                 SizedBox(height: 17),
                 Center(
@@ -70,15 +68,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       Text(
                         '   42   ',
-                        style: GoogleFonts.poppins(color: AppColors.white),
+                        style: GoogleFonts.inter(color: AppColors.white),
                       ),
                       Text(
                         '   1.2k   ',
-                        style: GoogleFonts.poppins(color: AppColors.white),
+                        style: GoogleFonts.inter(color: AppColors.white),
                       ),
                       Text(
                         '   12    ',
-                        style: GoogleFonts.poppins(color: AppColors.white),
+                        style: GoogleFonts.inter(color: AppColors.white),
                       ),
                     ],
                   ),
@@ -88,21 +86,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     Text(
                       'BOOKS',
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.inter(
                         color: AppColors.grey,
                         fontSize: 10,
                       ),
                     ),
                     Text(
                       'MINUTES',
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.inter(
                         color: AppColors.grey,
                         fontSize: 10,
                       ),
                     ),
                     Text(
                       'BADGES',
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.inter(
                         color: AppColors.grey,
                         fontSize: 10,
                       ),
@@ -116,7 +114,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Text(
                       textAlign: TextAlign.left,
                       'LIBRARY ACTIVITY',
-                      style: GoogleFonts.poppins(color: AppColors.orange),
+                      style: GoogleFonts.inter(color: AppColors.orange),
                     ),
                   ],
                 ),
@@ -138,15 +136,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         title: Text(
                           'My Pusrchases',
-                          style: GoogleFonts.poppins(color: AppColors.white),
+                          style: GoogleFonts.inter(color: AppColors.white),
                         ),
-                        trailing: Icon(Icons.keyboard_arrow_right_outlined),
+                        trailing: IconButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/subscription');
+                          },
+                          icon: Icon((Icons.keyboard_arrow_right_outlined)),
+                        ),
                       ),
                       ListTile(
                         leading: Icon(Icons.translate, color: AppColors.orange),
                         title: Text(
                           'Reading History',
-                          style: GoogleFonts.poppins(color: AppColors.white),
+                          style: GoogleFonts.inter(color: AppColors.white),
                         ),
                         trailing: Icon(Icons.keyboard_arrow_right_outlined),
                       ),
@@ -158,7 +161,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     Text(
                       'ACCOUNT & SETTINGS',
-                      style: GoogleFonts.poppins(color: AppColors.orange),
+                      style: GoogleFonts.inter(color: AppColors.orange),
                     ),
                   ],
                 ),
@@ -177,7 +180,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         leading: Icon(Icons.dark_mode, color: AppColors.orange),
                         title: Text(
                           'Dark Mode',
-                          style: GoogleFonts.poppins(color: AppColors.white),
+                          style: GoogleFonts.inter(color: AppColors.white),
                         ),
                         trailing: CupertinoSwitch(
                           activeTrackColor: AppColors.orange,
@@ -193,21 +196,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         leading: Icon(Icons.security, color: AppColors.orange),
                         title: Text(
                           'Account Security',
-                          style: GoogleFonts.poppins(color: AppColors.white),
+                          style: GoogleFonts.inter(color: AppColors.white),
                         ),
-                        trailing: Icon(Icons.keyboard_arrow_right_outlined),
+                        trailing: IconButton(onPressed: (){
+                          Navigator.pushNamed(context, '/edit_profile');
+                        }, icon: Icon(Icons.keyboard_arrow_right_outlined)),
                       ),
                       ListTile(
                         leading: Icon(Icons.help, color: AppColors.orange),
                         title: Text(
                           'Help & Support',
-                          style: GoogleFonts.poppins(color: AppColors.white),
+                          style: GoogleFonts.inter(color: AppColors.white),
                         ),
                         trailing: Icon(Icons.keyboard_arrow_right_outlined),
                       ),
+                      ListTile(
+                        leading: Icon(
+                          Icons.warning_amber,
+                          color: AppColors.orange,
+                        ),
+                        title: Text(
+                          'Report a problem',
+                          style: GoogleFonts.inter(color: AppColors.white),
+                        ),
+                        trailing: IconButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/report');
+                          },
+                          icon: Icon(Icons.keyboard_arrow_right_outlined),
+                        ),
+                      ),
                     ],
                   ),
-                  ),
+                ),
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {},
@@ -225,7 +246,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       SizedBox(width: 12),
                       Text(
                         'Logout',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           color: AppColors.orange,
                           fontWeight: FontWeight.bold,
                         ),
@@ -236,7 +257,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 SizedBox(height: 20),
                 Text(
                   'PN Version 2.4.0 (1024)',
-                  style: GoogleFonts.poppins(color: AppColors.grey),
+                  style: GoogleFonts.inter(color: AppColors.grey),
                 ),
               ],
             ),
