@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pn_app/src/core/consts/colors/app_colors.dart';
+import 'package:pn_app/src/core/utils/custom_snack_bar.dart';
+import 'package:pn_app/src/features/profile/prsentation/cubit/upload_cubit.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ReportScreen extends StatelessWidget {
   const ReportScreen({super.key});
@@ -97,34 +101,84 @@ class ReportScreen extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 10),
-                Row(
-                  children: [
-                    Column(
-                      children: [
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.add_outlined,
-                            color: AppColor.orange,
+                SizedBox(
+                  height: 96,
+                  width: MediaQuery.sizeOf(context).width,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      InkWell(
+                        overlayColor: WidgetStatePropertyAll(AppColor.orang),
+                        customBorder: RoundedRectangleBorder(
+                          borderRadius: BorderRadiusGeometry.circular(20),
+                        ),
+                        onTap: () {
+                          context.read<UploadCubit>().pickImageFromGallery();
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Icon(Icons.add_outlined),
+                              SizedBox(height: 10),
+                              Text(
+                                'ADD',
+                                style: GoogleFonts.inter(color: AppColor.orange),
+                              ),
+                            ],
                           ),
                         ),
-                        Text(
-                          'ADD',
-                          style: GoogleFonts.inter(color: AppColor.orange),
-                        ),
-                      ],
-                    ),
-
-                    SizedBox(width: 20),
-                    Container(
-                      height: 96,
-                      width: 96,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
                       ),
-                      child: Image.asset('assets/images/phone.png'),
-                    ),
-                  ],
+                  
+                      SizedBox(width: 20),
+                      BlocConsumer<UploadCubit, UploadState>(
+                        listener: (context, state) {
+                          if (state.status == UploadStatus.error) {
+                            SnackbarService.showError(
+                              context: context,
+                              message: 'Something went wrong !',
+                            );
+                          }
+                        },
+                        builder: (context, state) {
+                          if (state.status == UploadStatus.loading) {
+                            return Shimmer.fromColors(
+                              baseColor: AppColor.bcgraunt,
+                              highlightColor: AppColor.orang,
+                              period: Duration(seconds: 1),
+                              child: Container(
+                                height: 96,
+                                width: 96,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                            );
+                          } else if (state.status == UploadStatus.loaded) {
+                            return Row(
+                              children: List.generate(
+                                state.pickedImages.length,
+                                (i) => Container(
+                                  height: 96,
+                                  width: 96,
+                                  margin: EdgeInsets.only(right: 20),
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: FileImage(state.pickedImages[i]),
+                                      fit: BoxFit.cover
+                                    ),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                ),
+                              ),
+                            );
+                          } else {
+                            return SizedBox();
+                          }
+                        },
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 12),
                 Row(
