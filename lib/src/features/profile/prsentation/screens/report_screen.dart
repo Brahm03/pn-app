@@ -75,6 +75,7 @@ class ReportScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 TextFormField(
+                  style: GoogleFonts.inter(color: AppColors.white),
                   maxLines: 7,
                   decoration: InputDecoration(
                     hintText: 'Tell us what\'s happening...',
