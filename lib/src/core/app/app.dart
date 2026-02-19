@@ -10,7 +10,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: true,
       title: 'PN app',
       onGenerateRoute: AppRouter.onGenerateRoute,
-      initialRoute: '/login',
+      initialRoute: '/save books',
     );
   }
 }
