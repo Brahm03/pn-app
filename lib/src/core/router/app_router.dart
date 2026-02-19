@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pn_app/src/features/auth/presentation/home/home_screen.dart';
 import 'package:pn_app/src/features/auth/presentation/screens/login_page.dart';
 
 class AppRouter {
@@ -6,8 +7,8 @@ class AppRouter {
     switch (settings.name) {
       case '/login':
         return customRouter(LoginPage());
-      // case "sign_up":
-      //   return customRouter();
+      case "/home":
+        return customRouter(HomeScreen());
       default:
     }
   }
