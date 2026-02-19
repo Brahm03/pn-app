@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pn_app/src/features/audio/presentation/screens/readinghistory_screen.dart';
+import 'package:pn_app/src/features/audio/presentation/screens/player_screen.dart';
 import 'package:pn_app/src/features/auth/presentation/screens/login_page.dart';
 
 class AppRouter {
@@ -6,8 +8,8 @@ class AppRouter {
     switch (settings.name) {
       case '/login':
         return customRouter(LoginPage());
-      // case "sign_up":
-      //   return customRouter();
+      case "/audio":
+        return customRouter(PlayerScreen());
       default:
     }
   }
