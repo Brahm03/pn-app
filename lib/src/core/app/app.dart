@@ -8,9 +8,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(),
       title: 'PN app',
       onGenerateRoute: AppRouter.onGenerateRoute,
-      initialRoute: '/profile',
+      initialRoute: '/review',
     );
   }
 }
