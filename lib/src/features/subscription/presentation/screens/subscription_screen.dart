@@ -18,19 +18,19 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: false,
-      backgroundColor: AppColors.darkBrown,
+      backgroundColor: AppColor.darkBrown,
       appBar: AppBar(
-        backgroundColor: AppColors.darkBrown,
+        backgroundColor: AppColor.darkBrown,
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_sharp, color: AppColors.white),
+          icon: Icon(Icons.arrow_back_sharp, color: AppColor.white),
         ),
         title: Text(
           'Your Membership',
-          style: GoogleFonts.inter(color: AppColors.white),
+          style: GoogleFonts.inter(color: AppColor.white),
         ),
       ),
       body: SingleChildScrollView(
@@ -43,7 +43,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                 padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: AppColors.white.withAlpha(20),
+                  color: AppColor.white.withAlpha(20),
                 ),
                 child: Column(
                   children: [
@@ -52,11 +52,11 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                       children: [
                         Text(
                           'FREE TIER USAGE',
-                          style: GoogleFonts.inter(color: AppColors.orange),
+                          style: GoogleFonts.inter(color: AppColor.orange),
                         ),
                         Text(
                           '3 of 5 books',
-                          style: GoogleFonts.inter(color: AppColors.white),
+                          style: GoogleFonts.inter(color: AppColor.white),
                         ),
                       ],
                     ),
@@ -66,7 +66,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: AppColors.orange,
+                        color: AppColor.orange,
                       ),
                     ),
                     SizedBox(height: 10),
@@ -74,7 +74,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                       textAlign: TextAlign.center,
                       'You\'ve enjoyed 3 out 5 free books this\nmonth. Upgrade to keep reading without limits.',
                       style: GoogleFonts.inter(
-                        color: AppColors.white.withAlpha(80),
+                        color: AppColor.white.withAlpha(80),
                         fontSize: 12,
                       ),
                     ),
@@ -85,32 +85,28 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
               Text(
                 textAlign: TextAlign.center,
                 'Elevate Your Reading\nExperience',
-                style: GoogleFonts.inter(
-                  color: AppColors.white,
-                  fontSize: 25,
-                ),
+                style: GoogleFonts.inter(color: AppColor.white, fontSize: 25),
               ),
               SizedBox(height: 7),
               Text(
                 textAlign: TextAlign.center,
                 'Unlock unlimited access to\nthousands of stories, anywhere,\nanytime.',
                 style: GoogleFonts.inter(
-                  color: AppColors.white.withAlpha(80),
+                  color: AppColor.white.withAlpha(80),
                   fontSize: 18,
                 ),
               ),
               SizedBox(height: 15),
               Container(
-                height: 522,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.orange),
+                  border: Border.all(color: AppColor.orange),
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      AppColors.orange.withAlpha(100),
-                      AppColors.darkBrown.withAlpha(40),
+                      AppColor.orange.withAlpha(100),
+                      AppColor.darkBrown.withAlpha(40),
                     ],
                   ),
                   borderRadius: BorderRadius.circular(15),
@@ -123,14 +119,14 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                       Text(
                         'PN Premium',
                         style: GoogleFonts.inter(
-                          color: AppColors.white,
+                          color: AppColor.white,
                           fontSize: 25,
                         ),
                       ),
                       Text(
                         'Full library access',
                         style: GoogleFonts.inter(
-                          color: AppColors.white.withAlpha(80),
+                          color: AppColor.white.withAlpha(80),
                         ),
                       ),
                       SizedBox(height: 5),
@@ -139,14 +135,14 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           Text(
                             '\$9.99',
                             style: GoogleFonts.inter(
-                              color: AppColors.white,
+                              color: AppColor.white,
                               fontSize: 30,
                             ),
                           ),
                           Text(
                             '/month',
                             style: GoogleFonts.inter(
-                              color: AppColors.white.withAlpha(80),
+                              color: AppColor.white.withAlpha(80),
                             ),
                           ),
                         ],
@@ -154,7 +150,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                       ListTile(
                         trailing: Icon(Icons.abc),
                         leading: Checkbox(
-                          activeColor: AppColors.orange,
+                          activeColor: AppColor.orange,
                           value: isOn,
                           onChanged: (value) {
                             setState(() {
@@ -167,14 +163,12 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           children: [
                             Text(
                               'Unlimited Reading',
-                              style: GoogleFonts.inter(
-                                color: AppColors.white,
-                              ),
+                              style: GoogleFonts.inter(color: AppColor.white),
                             ),
                             Text(
                               'Access our entire library of thousands of titles.',
                               style: GoogleFonts.inter(
-                                color: AppColors.white.withAlpha(80),
+                                color: AppColor.white.withAlpha(80),
                               ),
                             ),
                           ],
@@ -182,7 +176,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                       ),
                       ListTile(
                         leading: Checkbox(
-                          activeColor: AppColors.orange,
+                          activeColor: AppColor.orange,
                           value: isOn2,
                           onChanged: (value) {
                             setState(() {
@@ -195,14 +189,12 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           children: [
                             Text(
                               'Offline Mode',
-                              style: GoogleFonts.inter(
-                                color: AppColors.white,
-                              ),
+                              style: GoogleFonts.inter(color: AppColor.white),
                             ),
                             Text(
                               'Download books and read anywhere without data.',
                               style: GoogleFonts.inter(
-                                color: AppColors.white.withAlpha(80),
+                                color: AppColor.white.withAlpha(80),
                               ),
                             ),
                           ],
@@ -210,7 +202,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                       ),
                       ListTile(
                         leading: Checkbox(
-                          activeColor: AppColors.orange,
+                          activeColor: AppColor.orange,
                           value: isOn3,
                           onChanged: (value) {
                             setState(() {
@@ -223,14 +215,12 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           children: [
                             Text(
                               'Ad-Free Experience',
-                              style: GoogleFonts.inter(
-                                color: AppColors.white,
-                              ),
+                              style: GoogleFonts.inter(color: AppColor.white),
                             ),
                             Text(
                               'No interrupsions, just you and your stories.',
                               style: GoogleFonts.inter(
-                                color: AppColors.white.withAlpha(80),
+                                color: AppColor.white.withAlpha(80),
                               ),
                             ),
                           ],
@@ -238,7 +228,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                       ),
                       ListTile(
                         leading: Checkbox(
-                          activeColor: AppColors.orange,
+                          activeColor: AppColor.orange,
                           value: isOn4,
                           onChanged: (value) {
                             setState(() {
@@ -251,14 +241,12 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           children: [
                             Text(
                               'HQ Audiobooks',
-                              style: GoogleFonts.inter(
-                                color: AppColors.white,
-                              ),
+                              style: GoogleFonts.inter(color: AppColor.white),
                             ),
                             Text(
                               'High-fidelity narration for every title.',
                               style: GoogleFonts.inter(
-                                color: AppColors.white.withAlpha(80),
+                                color: AppColor.white.withAlpha(80),
                               ),
                             ),
                           ],
@@ -268,7 +256,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.orange,
+                            backgroundColor: AppColor.orange,
                             minimumSize: Size(double.infinity, 60),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadiusGeometry.circular(10),
@@ -277,7 +265,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           child: Text(
                             'Upgrade Now',
                             style: GoogleFonts.inter(
-                              color: AppColors.white,
+                              color: AppColor.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -288,7 +276,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                         child: Text(
                           'CANCEL ANYTIME - NO HIDDEN FEES',
                           style: GoogleFonts.inter(
-                            color: AppColors.white.withAlpha(80),
+                            color: AppColor.white.withAlpha(80),
                           ),
                         ),
                       ),
@@ -298,11 +286,10 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
               ),
               SizedBox(height: 8),
               Container(
-                height: 80,
                 padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: AppColors.white.withAlpha(20),
+                  color: AppColor.white.withAlpha(20),
                 ),
                 child: Column(
                   children: [
@@ -314,14 +301,14 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           Text(
                             'Annual Plan',
                             style: GoogleFonts.inter(
-                              color: AppColors.white,
+                              color: AppColor.white,
                               fontSize: 13,
                             ),
                           ),
                           Text(
                             'Save 20% compared to monthly',
                             style: GoogleFonts.inter(
-                              color: AppColors.white.withAlpha(80),
+                              color: AppColor.white.withAlpha(80),
                             ),
                           ),
                         ],
@@ -332,7 +319,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           Text(
                             '\$99.99',
                             style: GoogleFonts.inter(
-                              color: AppColors.white,
+                              color: AppColor.white,
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -340,7 +327,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                           Text(
                             'SAVE \$20/YEAR',
                             style: GoogleFonts.inter(
-                              color: AppColors.orange,
+                              color: AppColor.orange,
                               fontSize: 10,
                             ),
                           ),
