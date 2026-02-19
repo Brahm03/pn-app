@@ -10,6 +10,8 @@ class AppRouter {
         return customRouter(LoginPage());
       case "/audio":
         return customRouter(PlayerScreen());
+        case "/readinghistory":
+        return customRouter(ReadingHistoryScreen());
       default:
     }
   }
