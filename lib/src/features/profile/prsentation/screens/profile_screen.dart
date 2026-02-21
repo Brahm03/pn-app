@@ -129,20 +129,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 5),
                   child: Column(
                     children: [
-                      ListTile(
-                        leading: Icon(
-                          Icons.shopping_bag_sharp,
-                          color: AppColor.orange,
-                        ),
-                        title: Text(
-                          'My Pusrchases',
-                          style: GoogleFonts.inter(color: AppColor.white),
-                        ),
-                        trailing: IconButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/subscription');
-                          },
-                          icon: Icon((Icons.keyboard_arrow_right_outlined)),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/subscription');
+                        },
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.shopping_bag_sharp,
+                            color: AppColor.orange,
+                          ),
+                          title: Text(
+                            'My Pusrchases',
+                            style: GoogleFonts.inter(color: AppColor.white),
+                          ),
+                          trailing: Icon(Icons.keyboard_arrow_right_outlined),
                         ),
                       ),
                       ListTile(
@@ -191,17 +191,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           },
                         ),
                       ),
-                      ListTile(
-                        leading: Icon(Icons.security, color: AppColor.orange),
-                        title: Text(
-                          'Account Security',
-                          style: GoogleFonts.inter(color: AppColor.white),
-                        ),
-                        trailing: IconButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/edit_profile');
-                          },
-                          icon: Icon(Icons.keyboard_arrow_right_outlined),
+                      InkWell(
+                        onTap: () => Navigator.pushNamed(context, '/edit_profile'),
+                        child: ListTile(
+                          leading: Icon(Icons.security, color: AppColor.orange),
+                          title: Text(
+                            'Account Security',
+                            style: GoogleFonts.inter(color: AppColor.white),
+                          ),
+                          trailing:Icon(Icons.keyboard_arrow_right_outlined),
                         ),
                       ),
                       ListTile(
@@ -212,20 +210,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         trailing: Icon(Icons.keyboard_arrow_right_outlined),
                       ),
-                      ListTile(
-                        leading: Icon(
-                          Icons.warning_amber,
-                          color: AppColor.orange,
-                        ),
-                        title: Text(
-                          'Report a problem',
-                          style: GoogleFonts.inter(color: AppColor.white),
-                        ),
-                        trailing: IconButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/report');
-                          },
-                          icon: Icon(Icons.keyboard_arrow_right_outlined),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/report');
+                        },
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.warning_amber,
+                            color: AppColor.orange,
+                          ),
+                          title: Text(
+                            'Report a problem',
+                            style: GoogleFonts.inter(color: AppColor.white),
+                          ),
+                          trailing: Icon(Icons.keyboard_arrow_right_outlined),
                         ),
                       ),
                     ],
