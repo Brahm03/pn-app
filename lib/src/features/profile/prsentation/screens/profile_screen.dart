@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pn_app/src/core/consts/colors/app_colors.dart';
+import 'package:pn_app/src/features/profile/prsentation/screens/widgets/log_out_dialog.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -232,7 +233,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return Dialog(
+                          child: LogOutDialog(),
+                        );
+                      },
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColor.darkBrown.withRed(42),
                     minimumSize: Size(double.infinity, 60),
