@@ -32,7 +32,9 @@ class App extends StatelessWidget {
         theme: ThemeData.dark(),
         title: 'PN app',
         onGenerateRoute: AppRouter.onGenerateRoute,
-        initialRoute: GetStorage().read('token') != null ? '/profile' : "/welcome",
+        initialRoute: GetStorage().read('token') != null
+            ? '/profile'
+            : "/welcome",
       ),
     );
   }
