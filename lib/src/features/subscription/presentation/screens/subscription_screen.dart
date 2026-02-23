@@ -148,7 +148,6 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                         ],
                       ),
                       ListTile(
-                        trailing: Icon(Icons.abc),
                         leading: Checkbox(
                           activeColor: AppColor.orange,
                           value: isOn,

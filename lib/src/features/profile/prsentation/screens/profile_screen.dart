@@ -129,7 +129,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 5),
                   child: Column(
                     children: [
-                      InkWell(
+                      GestureDetector(
                         onTap: () {
                           Navigator.pushNamed(context, '/subscription');
                         },
@@ -191,7 +191,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           },
                         ),
                       ),
-                      InkWell(
+                      GestureDetector(
                         onTap: () => Navigator.pushNamed(context, '/edit_profile'),
                         child: ListTile(
                           leading: Icon(Icons.security, color: AppColor.orange),
@@ -210,7 +210,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         trailing: Icon(Icons.keyboard_arrow_right_outlined),
                       ),
-                      InkWell(
+                      GestureDetector(
                         onTap: () {
                           Navigator.pushNamed(context, '/report');
                         },

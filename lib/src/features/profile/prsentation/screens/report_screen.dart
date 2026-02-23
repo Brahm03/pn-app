@@ -58,7 +58,38 @@ class ReportScreen extends StatelessWidget {
                           'Select Category',
                           style: GoogleFonts.inter(color: AppColor.white),
                         ),
-                        Icon(Icons.arrow_drop_down_sharp, color: AppColor.grey),
+                        DropdownButton(
+                          dropdownColor: AppColor.darkBrown,
+                          underline: SizedBox(),
+                          onChanged: (v) {},
+                          icon: Icon(
+                            Icons.keyboard_arrow_down_outlined,
+                            color: AppColor.white,
+                          ),
+                          items: [
+                            DropdownMenuItem(
+                              value: 'option1',
+                              child: Text(
+                                'Option 1',
+                                style: GoogleFonts.inter(),
+                              ),
+                            ),
+                            DropdownMenuItem(
+                              value: 'option2',
+                              child: Text(
+                                'Option 2',
+                                style: GoogleFonts.inter(),
+                              ),
+                            ),
+                            DropdownMenuItem(
+                              value: 'option3',
+                              child: Text(
+                                'Option 3',
+                                style: GoogleFonts.inter(),
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -123,13 +154,15 @@ class ReportScreen extends StatelessWidget {
                               SizedBox(height: 10),
                               Text(
                                 'ADD',
-                                style: GoogleFonts.inter(color: AppColor.orange),
+                                style: GoogleFonts.inter(
+                                  color: AppColor.orange,
+                                ),
                               ),
                             ],
                           ),
                         ),
                       ),
-                  
+
                       SizedBox(width: 20),
                       BlocConsumer<UploadCubit, UploadState>(
                         listener: (context, state) {
@@ -165,7 +198,7 @@ class ReportScreen extends StatelessWidget {
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       image: FileImage(state.pickedImages[i]),
-                                      fit: BoxFit.cover
+                                      fit: BoxFit.cover,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
