@@ -5,7 +5,9 @@ import 'package:pn_app/src/features/auth/data/repository/auth_repo_impl.dart';
 import 'package:pn_app/src/features/auth/data/source/auth_data_source_impl.dart';
 import 'package:pn_app/src/features/auth/domain/usecase/auth_register_use_case.dart';
 import 'package:pn_app/src/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:pn_app/src/features/main/cubit/main_cubit.dart';
 import 'package:pn_app/src/features/profile/prsentation/cubit/upload_cubit.dart';
+import 'package:pn_app/src/features/reading_stats/presentation/cubit/stats_cubit.dart';
 
 import '../router/app_router.dart';
 
@@ -17,6 +19,8 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => UploadCubit()),
+        BlocProvider(create: (context) => StatsCubit()),
+        BlocProvider(create: (context) => MainCubit()),
         BlocProvider(
           create: (context) => AuthCubit(
             authRegisterUseCase: AuthRegisterUseCase(
@@ -33,7 +37,7 @@ class App extends StatelessWidget {
         title: 'PN app',
         onGenerateRoute: AppRouter.onGenerateRoute,
         initialRoute: GetStorage().read('token') != null
-            ? '/profile'
+            ? '/main'
             : "/welcome",
       ),
     );

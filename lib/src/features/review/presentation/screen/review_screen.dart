@@ -11,7 +11,7 @@ class ReviewScreen extends StatelessWidget {
       backgroundColor: Color(0xff1c0f0a),
       appBar: AppBar(
         actions: [
-          SvgPicture.asset('assets/icons/search.svg'),
+          SvgPicture.asset('assets/icons/searchorng.svg'),
           SizedBox(width: 15),
           SvgPicture.asset('assets/icons/menu.svg'),
           SizedBox(width: 15),
