@@ -10,6 +10,7 @@ import 'package:pn_app/src/features/auth/presentation/auth/screens/sign_up_scree
 import 'package:pn_app/src/features/auth/presentation/auth/screens/welcome_screen.dart';
 import 'package:pn_app/src/features/auth/presentation/screens/login_page.dart';
 import 'package:pn_app/src/features/home/home_screen.dart';
+import 'package:pn_app/src/features/review/presentation/screen/author_screen.dart';
 import 'package:pn_app/src/features/review/presentation/screen/review_screen.dart';
 import 'package:pn_app/src/features/auth/presentation/screens/save_the_books/save_the_books.dart';
 import 'package:pn_app/src/features/profile/prsentation/screens/edit_profile_screen.dart';
@@ -21,6 +22,8 @@ class AppRouter {
   // ignore: body_might_complete_normally_nullable
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+       case '/author':
+        return customRouter(AuthorScreen());
       case '/login':
         return customRouter(Splashscreen());
       case "/splash":

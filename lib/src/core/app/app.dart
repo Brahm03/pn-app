@@ -43,7 +43,8 @@ class App extends StatelessWidget {
         ),
         title: 'PN app',
         onGenerateRoute: AppRouter.onGenerateRoute,
-        initialRoute: GetStorage().read('token') != null ? '/home' : "/welcome",
+        initialRoute: GetStorage().read('token') != null ? '/author' : "/author",
+        //oxirini welcome qil !!!
       ),
     );
   }
