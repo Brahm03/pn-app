@@ -9,6 +9,7 @@ import 'package:pn_app/src/features/auth/presentation/auth/screens/forgot_passwo
 import 'package:pn_app/src/features/auth/presentation/auth/screens/sign_up_screen.dart';
 import 'package:pn_app/src/features/auth/presentation/auth/screens/welcome_screen.dart';
 import 'package:pn_app/src/features/auth/presentation/screens/login_page.dart';
+import 'package:pn_app/src/features/home/presentation/screens/home_screen.dart';
 import 'package:pn_app/src/features/home/home_screen.dart';
 import 'package:pn_app/src/features/review/presentation/screen/author_screen.dart';
 import 'package:pn_app/src/features/review/presentation/screen/review_screen.dart';

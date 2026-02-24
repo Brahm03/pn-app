@@ -15,6 +15,14 @@ import '../../../../core/either/either.dart';
 import '../../../../core/failure/failures.dart';
 import 'auth_data_source.dart';
 
+// * Audio -> Kumush | Book audio
+// * Splash -> Bobur
+// * Auth Register -> forget password | Shahobiddin
+// * Home Detail -> All books | Saidaxmad
+// * Ulugbek -> Profile | Premium | 
+// * Review | Author -> Shohjaxon
+// * Save screen | -> Shohimardon
+
 class AuthDataSourceImpl extends AuthDataSource {
   @override
   Future<Either<Failure, void>> register({
