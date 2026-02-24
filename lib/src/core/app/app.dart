@@ -7,6 +7,10 @@ import 'package:pn_app/src/features/auth/data/source/auth_data_source_impl.dart'
 import 'package:pn_app/src/features/auth/domain/usecase/auth_register_use_case.dart';
 import 'package:pn_app/src/features/auth/domain/usecase/auth_sign_in_usercase.dart';
 import 'package:pn_app/src/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:pn_app/src/features/home/data/repository/home_repository_impl.dart';
+import 'package:pn_app/src/features/home/data/source/home_data_source_impl.dart';
+import 'package:pn_app/src/features/home/domain/usecase/get_books_usecase.dart';
+import 'package:pn_app/src/features/home/presentation/cubit/home_cubit.dart';
 import 'package:pn_app/src/features/profile/prsentation/cubit/profile_cubit.dart';
 import 'package:pn_app/src/features/profile/prsentation/cubit/upload_cubit.dart';
 
@@ -21,6 +25,7 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => UploadCubit()),
         BlocProvider(create: (context) => ProfileCubit()),
+        BlocProvider(create: (context) => HomeCubit(getBooksUsecase: GetBooksUsecase(homeRepository: HomeRepositoryImpl(homeDataSource: HomeDataSourceImpl())))),
         BlocProvider(
           create: (context) => AuthCubit(
             authSignInUsercase: AuthSignInUsercase(
