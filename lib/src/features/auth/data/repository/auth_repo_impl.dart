@@ -23,4 +23,20 @@ class AuthRepoImpl extends AuthRepository {
       return Left(Failure());
     }
   }
+
+  @override
+  Future<Either<Failure, void>> signIn({
+    required Map<String, dynamic> userInfo,
+  }) async {
+    try {
+      final result = await authDataSource.signIn(userInfo: userInfo);
+      if (result.isRight) {
+        return Right('');
+      } else {
+        throw Exception();
+      }
+    } catch (e) {
+      return Left(Failure());
+    }
+  }
 }
