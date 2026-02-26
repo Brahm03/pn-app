@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pn_app/src/core/consts/colors/app_colors.dart';
+import 'package:pn_app/src/features/profile/prsentation/cubit/profile_cubit.dart';
+import 'package:pn_app/src/features/profile/prsentation/cubit/profile_state.dart';
 import 'package:pn_app/src/features/profile/prsentation/screens/widgets/log_out_dialog.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -36,242 +39,291 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 24, right: 24),
-          child: Center(
-            child: Column(
-              children: [
-                SizedBox(height: 10),
-                CircleAvatar(
-                  foregroundImage: NetworkImage(
-                    'https://plus.unsplash.com/premium_photo-1739361617387-abe27c9e1d4b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZmlsZSUyMHdpdGglMjBvcmFuZ2UlMjBmb258ZW58MHx8MHx8fDA%3D',
+      body: BlocBuilder<ProfileCubit, ProfileState>(
+        builder: (context, state) {
+          if (state.status == ProfileStatus.loading) {
+            return Center(child: CircularProgressIndicator());
+          } else if (state.status == ProfileStatus.error) {
+            return Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(state.errorText),
+                  IconButton(
+                    onPressed: () {
+                      context.read<ProfileCubit>().getUser();
+                    },
+                    icon: Icon(Icons.refresh, color: AppColor.orange),
                   ),
-                  backgroundColor: AppColor.white,
-                  radius: 45,
-                  backgroundImage: NetworkImage(
-                    'https://plus.unsplash.com/premium_photo-1739361617387-abe27c9e1d4b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZmlsZSUyMHdpdGglMjBvcmFuZ2UlMjBmb258ZW58MHx8MHx8fDA%3D',
-                  ),
-                ),
-                SizedBox(height: 8),
-                Text(
-                  'John Doe',
-                  style: GoogleFonts.inter(color: AppColor.white),
-                ),
-                Text(
-                  'john.doe@email.com',
-                  style: GoogleFonts.inter(color: AppColor.orange),
-                ),
-                SizedBox(height: 17),
-                Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        '   42   ',
-                        style: GoogleFonts.inter(color: AppColor.white),
-                      ),
-                      Text(
-                        '   1.2k   ',
-                        style: GoogleFonts.inter(color: AppColor.white),
-                      ),
-                      Text(
-                        '   12    ',
-                        style: GoogleFonts.inter(color: AppColor.white),
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      'BOOKS',
-                      style: GoogleFonts.inter(
-                        color: AppColor.grey,
-                        fontSize: 10,
-                      ),
-                    ),
-                    Text(
-                      'MINUTES',
-                      style: GoogleFonts.inter(
-                        color: AppColor.grey,
-                        fontSize: 10,
-                      ),
-                    ),
-                    Text(
-                      'BADGES',
-                      style: GoogleFonts.inter(
-                        color: AppColor.grey,
-                        fontSize: 10,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 22),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      textAlign: TextAlign.left,
-                      'LIBRARY ACTIVITY',
-                      style: GoogleFonts.inter(color: AppColor.orange),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 8),
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: AppColor.darkBrown.withRed(42),
-                  ),
-                  padding: EdgeInsets.symmetric(horizontal: 5),
+                ],
+              ),
+            );
+          } else if (state.status == ProfileStatus.loaded) {
+            return SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 24, right: 24),
+                child: Center(
                   child: Column(
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/subscription');
-                        },
-                        child: ListTile(
-                          leading: Icon(
-                            Icons.shopping_bag_sharp,
-                            color: AppColor.orange,
-                          ),
-                          title: Text(
-                            'My Pusrchases',
-                            style: GoogleFonts.inter(color: AppColor.white),
-                          ),
-                          trailing: Icon(Icons.keyboard_arrow_right_outlined),
+                      SizedBox(height: 10),
+                      CircleAvatar(
+                        foregroundImage: NetworkImage(
+                          'https://plus.unsplash.com/premium_photo-1739361617387-abe27c9e1d4b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZmlsZSUyMHdpdGglMjBvcmFuZ2UlMjBmb258ZW58MHx8MHx8fDA%3D',
+                        ),
+                        backgroundColor: AppColor.white,
+                        radius: 45,
+                        backgroundImage: NetworkImage(
+                          'https://plus.unsplash.com/premium_photo-1739361617387-abe27c9e1d4b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZmlsZSUyMHdpdGglMjBvcmFuZ2UlMjBmb258ZW58MHx8MHx8fDA%3D',
                         ),
                       ),
-                      ListTile(
-                        leading: Icon(Icons.translate, color: AppColor.orange),
-                        title: Text(
-                          'Reading History',
-                          style: GoogleFonts.inter(color: AppColor.white),
-                        ),
-                        trailing: Icon(Icons.keyboard_arrow_right_outlined),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
-                Row(
-                  children: [
-                    Text(
-                      'ACCOUNT & SETTINGS',
-                      style: GoogleFonts.inter(color: AppColor.orange),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 8),
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: AppColor.darkBrown.withRed(42),
-                  ),
-                  padding: EdgeInsets.symmetric(horizontal: 5),
-                  child: Column(
-                    children: [
-                      ListTile(
-                        leading: Icon(Icons.dark_mode, color: AppColor.orange),
-                        title: Text(
-                          'Dark Mode',
-                          style: GoogleFonts.inter(color: AppColor.white),
-                        ),
-                        trailing: CupertinoSwitch(
-                          activeTrackColor: AppColor.orange,
-                          value: isOn,
-                          onChanged: (value) {
-                            setState(() {
-                              isOn = value;
-                            });
-                          },
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () => Navigator.pushNamed(context, '/edit_profile'),
-                        child: ListTile(
-                          leading: Icon(Icons.security, color: AppColor.orange),
-                          title: Text(
-                            'Account Security',
-                            style: GoogleFonts.inter(color: AppColor.white),
-                          ),
-                          trailing:Icon(Icons.keyboard_arrow_right_outlined),
-                        ),
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.help, color: AppColor.orange),
-                        title: Text(
-                          'Help & Support',
-                          style: GoogleFonts.inter(color: AppColor.white),
-                        ),
-                        trailing: Icon(Icons.keyboard_arrow_right_outlined),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/report');
-                        },
-                        child: ListTile(
-                          leading: Icon(
-                            Icons.warning_amber,
-                            color: AppColor.orange,
-                          ),
-                          title: Text(
-                            'Report a problem',
-                            style: GoogleFonts.inter(color: AppColor.white),
-                          ),
-                          trailing: Icon(Icons.keyboard_arrow_right_outlined),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return Dialog(
-                          child: LogOutDialog(),
-                        );
-                      },
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColor.darkBrown.withRed(42),
-                    minimumSize: Size(double.infinity, 60),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadiusGeometry.circular(15),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.logout, color: AppColor.orange),
-                      SizedBox(width: 12),
+                      SizedBox(height: 8),
                       Text(
-                        'Logout',
-                        style: GoogleFonts.inter(
-                          color: AppColor.orange,
-                          fontWeight: FontWeight.bold,
+                         state.users!.username,
+                        style: GoogleFonts.inter(color: AppColor.white),
+                      ),
+                      Text(
+                        state.users!.email,
+                        style: GoogleFonts.inter(color: AppColor.orange),
+                      ),
+                      SizedBox(height: 17),
+                      Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              '   42   ',
+                              style: GoogleFonts.inter(color: AppColor.white),
+                            ),
+                            Text(
+                              '   1.2k   ',
+                              style: GoogleFonts.inter(color: AppColor.white),
+                            ),
+                            Text(
+                              '   12    ',
+                              style: GoogleFonts.inter(color: AppColor.white),
+                            ),
+                          ],
                         ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(
+                            'BOOKS',
+                            style: GoogleFonts.inter(
+                              color: AppColor.grey,
+                              fontSize: 10,
+                            ),
+                          ),
+                          Text(
+                            'MINUTES',
+                            style: GoogleFonts.inter(
+                              color: AppColor.grey,
+                              fontSize: 10,
+                            ),
+                          ),
+                          Text(
+                            'BADGES',
+                            style: GoogleFonts.inter(
+                              color: AppColor.grey,
+                              fontSize: 10,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 22),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            textAlign: TextAlign.left,
+                            'LIBRARY ACTIVITY',
+                            style: GoogleFonts.inter(color: AppColor.orange),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 8),
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: AppColor.darkBrown.withRed(42),
+                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 5),
+                        child: Column(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/subscription');
+                              },
+                              child: ListTile(
+                                leading: Icon(
+                                  Icons.shopping_bag_sharp,
+                                  color: AppColor.orange,
+                                ),
+                                title: Text(
+                                  'My Pusrchases',
+                                  style: GoogleFonts.inter(
+                                    color: AppColor.white,
+                                  ),
+                                ),
+                                trailing: Icon(
+                                  Icons.keyboard_arrow_right_outlined,
+                                ),
+                              ),
+                            ),
+                            ListTile(
+                              leading: Icon(
+                                Icons.translate,
+                                color: AppColor.orange,
+                              ),
+                              title: Text(
+                                'Reading History',
+                                style: GoogleFonts.inter(color: AppColor.white),
+                              ),
+                              trailing: Icon(
+                                Icons.keyboard_arrow_right_outlined,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        children: [
+                          Text(
+                            'ACCOUNT & SETTINGS',
+                            style: GoogleFonts.inter(color: AppColor.orange),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 8),
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: AppColor.darkBrown.withRed(42),
+                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 5),
+                        child: Column(
+                          children: [
+                            ListTile(
+                              leading: Icon(
+                                Icons.dark_mode,
+                                color: AppColor.orange,
+                              ),
+                              title: Text(
+                                'Dark Mode',
+                                style: GoogleFonts.inter(color: AppColor.white),
+                              ),
+                              trailing: CupertinoSwitch(
+                                activeTrackColor: AppColor.orange,
+                                value: isOn,
+                                onChanged: (value) {
+                                  setState(() {
+                                    isOn = value;
+                                  });
+                                },
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () =>
+                                  Navigator.pushNamed(context, '/edit_profile'),
+                              child: ListTile(
+                                leading: Icon(
+                                  Icons.security,
+                                  color: AppColor.orange,
+                                ),
+                                title: Text(
+                                  'Account Security',
+                                  style: GoogleFonts.inter(
+                                    color: AppColor.white,
+                                  ),
+                                ),
+                                trailing: Icon(
+                                  Icons.keyboard_arrow_right_outlined,
+                                ),
+                              ),
+                            ),
+                            ListTile(
+                              leading: Icon(Icons.help, color: AppColor.orange),
+                              title: Text(
+                                'Help & Support',
+                                style: GoogleFonts.inter(color: AppColor.white),
+                              ),
+                              trailing: Icon(
+                                Icons.keyboard_arrow_right_outlined,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/report');
+                              },
+                              child: ListTile(
+                                leading: Icon(
+                                  Icons.warning_amber,
+                                  color: AppColor.orange,
+                                ),
+                                title: Text(
+                                  'Report a problem',
+                                  style: GoogleFonts.inter(
+                                    color: AppColor.white,
+                                  ),
+                                ),
+                                trailing: Icon(
+                                  Icons.keyboard_arrow_right_outlined,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return Dialog(child: LogOutDialog());
+                            },
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColor.darkBrown.withRed(42),
+                          minimumSize: Size(double.infinity, 60),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadiusGeometry.circular(15),
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.logout, color: AppColor.orange),
+                            SizedBox(width: 12),
+                            Text(
+                              'Logout',
+                              style: GoogleFonts.inter(
+                                color: AppColor.orange,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Text(
+                        'PN Version 2.4.0 (1024)',
+                        style: GoogleFonts.inter(color: AppColor.grey),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
-                Text(
-                  'PN Version 2.4.0 (1024)',
-                  style: GoogleFonts.inter(color: AppColor.grey),
-                ),
-              ],
-            ),
-          ),
-        ),
+              ),
+            );
+          } else {
+            return SizedBox();
+          }
+        },
       ),
     );
   }

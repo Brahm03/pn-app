@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "premiums",
+  "info": {
+    "singularName": "premium",
+    "pluralName": "premiums",
+    "displayName": "premium"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "monthly_price": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}
