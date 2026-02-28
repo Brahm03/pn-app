@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:math';
 
 import 'package:dio/dio.dart';
@@ -16,7 +15,7 @@ class ProfileDataSourceImpl extends ProfileDataSource {
 
     try {
       print(
-        '🌐 Attempting to make API request to: http://localhost:1337/api/users/me',
+        '🌐 Attempting to make API request to: http://192.168.1.234:1337/api/users/me',
       );
 
       final response = await Dio().get(
@@ -53,14 +52,7 @@ class ProfileDataSourceImpl extends ProfileDataSource {
       print('⏰ TimeoutException caught: ${e.message}');
       print('📝 Timeout error details: $e');
       throw TimeoutException(e.message);
-    } on SocketException catch (e) {
-      print('🔌 SocketException caught: ${e.message}');
-      print(
-        '🌍 Network connection error. Check if server is running and accessible.',
-      );
-      print('📝 Socket error details: $e');
-      throw SocketException(e.message);
-    } on DioException catch (e) {
+    }  on DioException catch (e) {
       print('🚫 DioException caught');
       print('📝 Error type: ${e.type}');
       print('📝 Error message: ${e.message}');

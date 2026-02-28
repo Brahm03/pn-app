@@ -51,7 +51,7 @@ class App extends StatelessWidget {
         ),
         title: 'PN app',
         onGenerateRoute: AppRouter.onGenerateRoute,
-        initialRoute: GetStorage().read('token') != null ? '/home' : "/profile",
+        initialRoute: GetStorage().read('token') != null ? '/home' : "/welcome",
       ),
     );
   }
