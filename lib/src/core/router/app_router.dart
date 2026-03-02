@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pn_app/src/features/Settings/presantation/screens/setting_screen.dart';
 import 'package:pn_app/src/features/Splash/presentation/Screens/Onboarding.dart';
 import 'package:pn_app/src/features/Splash/presentation/Screens/SplashScreen.dart';
 import 'package:pn_app/src/features/Splash/presentation/Screens/TemaScreen.dart';
@@ -55,6 +56,8 @@ class AppRouter {
         return customRouter(PlayerScreen());  
       // case "sign_up":
       //   return customRouter();
+      case '/settings':
+        return customRouter(SettingScreen());
       default:
     }
   }
