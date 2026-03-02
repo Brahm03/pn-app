@@ -9,7 +9,15 @@ import 'package:pn_app/src/features/auth/presentation/auth/screens/forgot_passwo
 import 'package:pn_app/src/features/auth/presentation/auth/screens/sign_up_screen.dart';
 import 'package:pn_app/src/features/auth/presentation/auth/screens/welcome_screen.dart';
 import 'package:pn_app/src/features/auth/presentation/screens/login_page.dart';
+<<<<<<< Updated upstream
 import 'package:pn_app/src/features/home/home_screen.dart';
+=======
+<<<<<<< HEAD                  
+import 'package:pn_app/src/features/home/presentation/screens/home_screen.dart';
+======= <|cursor|>  
+import 'package:pn_app/src/features/reading%20stats/presentation/screens/ReadingStats_screen.dart';
+>>>>>>> 6f082abbbbdf67abb837e09a98362e770784b1d6
+>>>>>>> Stashed changes
 import 'package:pn_app/src/features/review/presentation/screen/review_screen.dart';
 import 'package:pn_app/src/features/auth/presentation/screens/save_the_books/save_the_books.dart';
 import 'package:pn_app/src/features/profile/prsentation/screens/edit_profile_screen.dart';
@@ -17,7 +25,7 @@ import 'package:pn_app/src/features/profile/prsentation/screens/profile_screen.d
 import 'package:pn_app/src/features/profile/prsentation/screens/report_screen.dart';
 import 'package:pn_app/src/features/subscription/presentation/screens/subscription_screen.dart';
 
-class AppRouter {
+class AppRouter {         
   // ignore: body_might_complete_normally_nullable
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -30,6 +38,12 @@ class AppRouter {
       case "/tema":
         return customRouter(LoginPage());
       case '/welcome':
+<<<<<<< Updated upstream
+=======
+      case "reading-stats":
+        return customRouter(ReadingStatsScreen());
+      case '/welcome':
+>>>>>>> Stashed changes
         return customRouter(WelcomeScreen());
       case '/change_password':
         return customRouter(ChangePassword());
