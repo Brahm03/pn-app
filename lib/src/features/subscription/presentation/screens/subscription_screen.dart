@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pn_app/src/core/consts/colors/app_colors.dart';
+import 'package:pn_app/src/features/subscription/presentation/cubit/subscription_cubit.dart';
+import 'package:pn_app/src/features/subscription/presentation/cubit/subscription_state.dart';
 
 class SubscriptionScreen extends StatefulWidget {
   const SubscriptionScreen({super.key});
@@ -132,12 +135,35 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                       SizedBox(height: 5),
                       Row(
                         children: [
-                          Text(
-                            '\$9.99',
-                            style: GoogleFonts.inter(
-                              color: AppColor.white,
-                              fontSize: 30,
-                            ),
+                          BlocBuilder<SubscriptionCubit, SubscriptionState>(
+                            builder: (context, state) {
+                              if (state.status == SubscriptionStatus.loading) {
+                                return CircularProgressIndicator(
+                                  color: AppColor.white,
+                                );
+                              } else if (state.status ==
+                                  SubscriptionStatus.error) {
+                                return Text(
+                                  'Error loading price',
+                                  style: GoogleFonts.inter(
+                                    color: AppColor.white,
+                                    fontSize: 30,
+                                  ),
+                                );
+                              } else if (state.status ==
+                                  SubscriptionStatus.loaded) {
+                                return Text(
+                                  '\$${state.price}',
+                                  style: GoogleFonts.inter(
+                                    color: AppColor.white,
+                                    fontSize: 30,
+                                  ),
+                                );
+                              } else {
+                                return SizedBox();
+                              }
+                            
+                            },
                           ),
                           Text(
                             '/month',

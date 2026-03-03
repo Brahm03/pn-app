@@ -16,6 +16,10 @@ import 'package:pn_app/src/features/profile/domain/repository/profile_repository
 import 'package:pn_app/src/features/profile/domain/usecase/get_user_usecase.dart';
 import 'package:pn_app/src/features/profile/prsentation/cubit/profile_cubit.dart';
 import 'package:pn_app/src/features/profile/prsentation/cubit/upload_cubit.dart';
+import 'package:pn_app/src/features/subscription/data/repository/subscription_repository_impl.dart';
+import 'package:pn_app/src/features/subscription/data/source/subscription_data_source_impl.dart';
+import 'package:pn_app/src/features/subscription/domain/usecase/preimuim_usecase.dart';
+import 'package:pn_app/src/features/subscription/presentation/cubit/subscription_cubit.dart';
 
 import '../router/app_router.dart';
 
@@ -27,6 +31,9 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => UploadCubit()),
+        BlocProvider(
+          create: (context) => SubscriptionCubit(preimuimUsecase: PreimuimUsecase(subscriptionRepository: SubscriptionRepositoryImpl(subscriptionDataSource: SubscriptionDataSourceImpl()))),
+        ),
         BlocProvider(create: (context) => ProfileCubit(getUserUseCase: GetUserUseCase(profileRepository: ProfileRepositoryImpl(profileDataSource: ProfileDataSourceImpl())))),
         BlocProvider(create: (context) => HomeCubit(getBooksUsecase: GetBooksUsecase(homeRepository: HomeRepositoryImpl(homeDataSource: HomeDataSourceImpl())))),
         BlocProvider(
